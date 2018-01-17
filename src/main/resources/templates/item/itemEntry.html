@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Enter Item</title>
+</head>
+<body>
+<h1>Item Entry</h1>
+<div>
+<form th:action="@{/addItem}" th:object="${itemDTO}" method="post">
+   <div>
+	 <input th:field="*{itemName}" id="itemName" type="text"/>
+	 <label class="active" for="itemName">Name</label>
+   </div>
+   <div>
+     <input th:field="*{itemDescription}" id="itemDescription" type="text"/>
+     <label class="active" for="itemDescription">Description</label>
+   </div>
+   <div>
+     <select id="itemType" th:field="*{itemType}">
+		   <option value="" selected="selected">[ALL]</option>
+		   <option th:each="itemTypeOpt : ${itemTypeOptions.entrySet()}"
+                   th:value="${itemTypeOpt.key}"
+                   th:text="${itemTypeOpt.value}"></option>
+		</select>
+        <label class="active" for="itemType">Item Type</label>
+   </div>
+   <div>
+     <select id="location" th:field="*{location}">
+		   <option value="" selected="selected">[ALL]</option>
+		   <option th:each="locationOpt : ${locationOptions.entrySet()}"
+                   th:value="${locationOpt.key}"
+                   th:text="${locationOpt.value}"></option>
+		</select>
+        <label class="active" for="location">Location</label>
+   </div>
+   <div>
+     <button type="submit" name="save">Save</button>
+     <button type="submit" name="cancel" formnovalidate="formnovalidate">Cancel</button>
+   </div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<link th:href="@{/main-style.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<title>Codes</title>
+</head>
+<body>
+<h1>Codes</h1>
+<table>
+    <thead>
+      <tr>
+      <th data-field="codeType">Code Type</th>
+      <th data-field="codeKey">Code Value</th>
+      <th data-field="shortDescription">Description</th>
+      <th data-field="longDescription">Long Description</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr th:each="code : ${codes}">
+         <td th:text="${code.codeType}">Code Type</td>
+         <td th:text="${code.codeValue}">Code Key</td>
+         <td th:text="${code.shortDescription}">Short Description</td>
+         <td th:text="${code.longDescription}">Long Description</td>
+      </tr>
+    </tbody>
+</table>
+</body>
+</html>

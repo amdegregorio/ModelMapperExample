@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<link th:href="@{/main-style.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<title>Items</title>
+</head>
+<body>
+<h1>Items</h1>
+<table>
+    <thead>
+      <tr>
+      <th data-field="itemName">Name</th>
+      <th data-field="itemDescription">Description</th>
+      <th data-field="itemType">Type</th>
+      <th data-field="location">Location</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr th:each="item : ${items}">
+         <td th:text="${item.itemName}">Name</td>
+         <td th:text="${item.itemDescription}">Description</td>
+         <td th:text="${item.itemType}">Type</td>
+         <td th:text="${item.location}">Location</td>
+      </tr>
+    </tbody>
+</table>
+</body>
+</html>
